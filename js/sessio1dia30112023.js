@@ -43,4 +43,49 @@ function functions(){
     //el mètode at() retorna un element indexat des d'un array
     let tmp = myArr.at(4);
     document.getElementById("at_method").innerHTML = "El mètode at() retorna el valor d'una posició de l'array: " + tmp;
+
+    //el mètode concat() fusiona o uneix dos arrays
+    var arr1 = ["dilluns", "dimarts", "dimecres"];
+    var arr2 = ["dijous", "divendres", "dissabte", "diumenge"];
+    var dies_setmana = arr1.concat(arr2);
+    document.getElementById("dies_setmana").innerHTML = "Els dies de la setmana són: " + dies_setmana;
+
+    //el mètode constructor serveix per crear i inicialitzar objectes creats amb una classe
+    class Car {
+        constructor(builder){
+            this.nom_cotxe = builder;
+        }
+    }
+    let myCar = new Car(myArr[6]);
+    document.getElementById("constructor").innerHTML = "La marca del meu cotxe és: " + myCar.nom_cotxe;
+
+    //el mèthode copyWithin() permet copiar elements de l'array a altres posicions dins del mateix array, o bé, també és pot dir que aquest mètode sobreescriu els valores de unes posicions amb els valors d'altres posicions
+    //copyWithin(target, start*, end*) *is optional
+    //*target is the index (position) to copy the elements to.
+    var fruites = ["apple", "cherry", "kiwi", "orange"];
+    let nouArr = fruites.copyWithin(2);
+    document.getElementById("copy").innerHTML = "Partim d'un array amb aquests valors: \'apple, cherry, kiwi, orange'\ i després de l'ús del métode copuWithin() està així: " + nouArr;
+
+    //el mètode entries() converteix l'array en un objecte/array associatiu de key-values
+    var arrNames = ["Marta", "Daniel", "Laura"];
+    var newArrNames = arrNames.entries();
+    document.getElementById("abans").innerHTML = "Aquest és l'array de noms inicial: " + arrNames + "<br><br>Aquest és l'array després utilitzar el mètode entires():";
+    for(let i of newArrNames){
+        document.getElementById("despres").innerHTML += i + "<br>";
+    }
+    
+    //el mètode every() executa una funció amb cada valor de l'array i retornarà true si totes les proves han tornat true
+    var edats = [22, 17, 28, 5];
+    function MajorEdat(edat){
+        return edat > 17;
+    }
+    var resultat = edats.every(MajorEdat);
+    document.getElementById("every").innerHTML = "El mètode every() retorna true si tot és true, sinó, false. En el present array el resultat és: " + resultat;
+
+    //el mètode fill() reescriu alguns o tots dels valors de l'array amb altres valors. La sintaxi és: array.fill(value, start, end)
+    document.getElementById("fills").innerHTML = "L'array resultant és: " + arrNames.fill("David", 1, 2);
+
+    //el mètode filter() retorna un nou array amb tots els valors de l'array original que passan a una condició
+    var resultat_majors = edats.filter(MajorEdat);
+    document.getElementById("filter").innerHTML = "Dels 4 individuos: " + resultat_majors.length + " són majors d'edat.";
 }
