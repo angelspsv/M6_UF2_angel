@@ -88,4 +88,35 @@ function functions(){
     //el mètode filter() retorna un nou array amb tots els valors de l'array original que passan a una condició
     var resultat_majors = edats.filter(MajorEdat);
     document.getElementById("filter").innerHTML = "Dels 4 individuos: " + resultat_majors.length + " són majors d'edat.";
+
+    //el mètode find() recorre un array cercant un valor i retorna el valor del primer element que passa les proves. Retorna l'element, no true / false
+    function compara(valor){
+        return valor === "opel";
+    }
+    document.getElementById("find").innerHTML = "L'element \'opel\' " + (myArr.find(compara) === "opel" ? "està " : "no està ") + "dins de l'array.";
+
+
+    //el mètode findIndex() recorre l'array en la cerca d'un element i retorna l'índex o posició del primer element que compleix la condició
+    function cercaFruita(fruita){
+        return fruita == "apple";
+    }
+    let tmp2 = nouArr.findIndex(cercaFruita);
+    document.getElementById("find_index").innerHTML = "El valor cercat " + (tmp == "-1" ? "no està" : "està") + " en l'array. Si la posició és '-1' no es troba cap coincidencia, sinó retorna la posició de la primera coincidencia trobada. En aquest cas la posició és: " + tmp2;
+
+    //el mètode flat() uneix elements d'altres arrays en un array nou 
+    var flatArr = [myArr[1], fruites[2], arr1[0], edats[2]];
+    document.getElementById("flat").innerHTML = `El mètode flat() uneix els valors de diferents arrays en un de nou amb aquests valors: ${flatArr}.`;
+
+    //el mètode flatMap() aplica una acció a tots els elements de l'array i retorna un de nou amb els nous valors
+    var newEdatsArr = edats.flatMap((element) => element + 10);
+    document.getElementById("flatMap").innerHTML = "Gràcies al mètode flatMap() podem saber quina edat tindrà la gent de l'array " + edats + " d'aquí a 10 anys " + newEdatsArr +  " anys.";
+
+    //el mètode forEach() executa una funció per cada element de l'array
+    let cerveses = ["Xibeca", "Pauliner", "VollDamm", "Clandestines"];
+    let texto_num = "";
+    cerveses.forEach(Enumera);
+    document.getElementById("forEach").innerHTML = "Vull enumerar l'array de cerveses: <br>" + texto_num;
+    function Enumera(num, element){
+        texto_num += element + ". " + num + "<br>";
+    }
 }
