@@ -119,4 +119,36 @@ function functions(){
     function Enumera(num, element){
         texto_num += element + ". " + num + "<br>";
     }
+
+
+    //El mètode from() retorna un array des de tot objecte amb length mètode
+    let equip = "liverpool";
+    var arrEquip = Array.from(equip);
+    document.getElementById("from").innerHTML = "El mètode from() permet passar d'un String a un array. Hem passat de " + equip + " a " + arrEquip;
+
+    //el mètode includes() retorna true si el String conté a un fragment de text determinat. També -opcional- pot començar des d'un punt concret.
+    //la sintaxis és text.includes(searchvalue, start) 
+    var resultat_boolean = equip.includes("pool");
+    document.getElementById("includes").innerHTML = "S'utilitza el métode includes() per cercar un fragment de text en una cadena. Retorna True/False. En el present cas, \'pool\'" + (resultat_boolean == true ? " està " : " no està ") + " dins de la cadena: " + equip;
+
+
+    //el mètode indexOf() retorna la posició de la primera referència trobada. Retorna -1 si no troba res i també es pot triar des d'on comença a cercar.
+    var posicio = myArr.indexOf("opel");
+    document.getElementById("indexOf").innerHTML = "El mètode indexOf() retorna la posició del primer element trobat dins de l'array. En el present cas, dins de l'array de coches estem cercant per \'opel\' i el String " + (posicio != -1 ? " està " : "no està") + "dins de l'array."; 
+    
+    
+    //el mètode isArray() retorna true si una variable és un array altrament, false
+    document.getElementById("isArray").innerHTML = "El mètode isArray() retorna true si és array. En aquest cas, darrere de arrNames [" + arrNames + "]" + (Array.isArray(arrNames) == 1 ? " hi ha" : " no hi ha") + " un array.";
+
+
+    //el mètode join() converteix un array en String. Opcionalment, també pot haver-hi un separador entre element i element
+    var longitud = dies_setmana.length;
+    document.getElementById("join").innerHTML = `Amb el mètode join() podem convertir un array a String. Així passem de l'array dies_setmana [${dies_setmana.join()}] amb longitud ${longitud} al String de longitud ${(dies_setmana.join()).length}.`;
+
+
+
+
+
+
+
 }
