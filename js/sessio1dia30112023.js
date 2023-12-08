@@ -146,9 +146,46 @@ function functions(){
     document.getElementById("join").innerHTML = `Amb el mètode join() podem convertir un array a String. Així passem de l'array dies_setmana [${dies_setmana.join()}] amb longitud ${longitud} al String de longitud ${(dies_setmana.join()).length}.`;
 
 
+    //el mètode keys no modifica l'array inicial. Retorna les keys/índex dels elements de l'array. El mètode keys() converteix un array de valors en un array associatiu
+    var materialEscolar = ["llibre", "llibreta", "boligraf", "regla"];
+    var arrayMatEsc = materialEscolar.keys();
+    let tmp3 = "";
+    for(let i of arrayMatEsc){
+        tmp3 += i + "<br>";
+    }
+    document.getElementById("keys").innerHTML = "Amb el mètode keys() podem convertir un array de valors a un d'associatiu. Així tenim aquest array de material escolar [" + materialEscolar + "] i ho passem a associatiu mostrant només l'índex de cada element: <br>" + tmp3;
+
+    //el mètode lastIndexOf() retorna la darrera aparició d'un fragment de text dins d'una cadena. Comença des de darrera i retorna -1 si no troba el fragment cercat. En cas afirmatiu retorna la posició on comença el fragment cercat. El mètode es CS. El mètode find() fa el mateix, però des de l'inici.
+    let cadena = "En aquest text el nom de Laura apareixerà dos cops. Hola, Laura";
+    document.getElementById("lastIndexOf").innerHTML = "Tenim el text [" + cadena + "] i estem cercant el fragment \'Laura\'. El mètode lastIndexOf() cerca fragments de text dins d'una cadena, però començant des de darrera i retornarà la posició des d'on comença el fragment: " + cadena.lastIndexOf("Laura");
 
 
+    //el mètode length en arrays retorna el nombre d'elements que hi ha. També amb aquest mètode es pot retallar l'array o fixar la seva longitud. En JavaScript la longitud dels arrays és dinàmica.   
+    document.getElementById("length").innerHTML = "Amb el mètode length en arrays podem coneixer el nombre d'elements que té un array. En aquest cas l'array de noms [" + arrNames + "] té " + arrNames.length + (arrNames.length == 1 ? " element." : " elements.");
 
 
+    //el mètode map() crea un nou array on emmagatzema els valors optinguts d'executar una funció per cada valor valor de l'array inicial. No modifica l'array original i tampoc executa amb valors buits.
+    var arrNums = [2, 3, 5, 7, 11];
+    function Multiplica(numero){
+        return numero * 5;
+    }
+    var arrayNumbers = arrNums.map(Multiplica);
+    document.getElementById("map").innerHTML = "El mètode map retorna un nou array com a resultat d'executar una operació/funció per cada valor de l'array original. Així tenim l'array original [" + arrNums + "] i després de fer servir map() amb la funció Multiplica() tenim com a resultat el nou array [" + arrayNumbers + "].";
 
+
+    //el mètode pop() modifica un array eliminat el seu darrer element i/o també pot retornar aquest element.
+    var vegetables = ["potatoes", "cucumber", "onions", "tomatoes"];
+    let lastVegetable = vegetables.pop();
+    document.getElementById("pop").innerHTML = "El mètode pop() modifica un array eliminant l'últim valor d'aquest i també pot retornar aquest valor. Així tenim l'array [potatoes, cucumber, onions, tomatoes] i després d'aplicar el mètode pop() l'array té aquest aspecte [" + vegetables + "] i l'element eliminat és: " + lastVegetable + ".";
+
+
+    //prototype permet afegir més propietats i mètodes als arrays
+    var mots = ["ara", "dema", "sempre"];
+    Array.prototype.WordsToUpperCase = function(){
+        for(let i=0; i<this.length; i++){
+            this[i] = this[i].toUpperCase();   
+        }
+    }
+    mots.WordsToUpperCase();
+    document.getElementById("prototype").innerHTML = "Prototype permet afegir més propietats i mètodes als arrays. En el present cas estic posant a totes les lletres en majúscules d'aquest array [ara, dema, sempre] i retorna: [" + mots + "].";
 }
