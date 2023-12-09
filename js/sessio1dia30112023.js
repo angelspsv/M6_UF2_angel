@@ -188,4 +188,26 @@ function functions(){
     }
     mots.WordsToUpperCase();
     document.getElementById("prototype").innerHTML = "Prototype permet afegir més propietats i mètodes als arrays. En el present cas estic posant a totes les lletres en majúscules d'aquest array [ara, dema, sempre] i retorna: [" + mots + "].";
+
+
+    //Amb el mètode push() es poden afegir nous elements a un array.
+    arrNames.push("Marc");
+    document.getElementById("push").innerHTML = `Amb el mètode push() podem afegir més elements a un array ja existent. En aquest cas afegirem el nom de 'Marc' a l'array de noms. Ara l'array conté aquests elements: [${arrNames}].`;
+
+
+    //Amb el mètode reduce() s'executa una funció que afecta tots els elements d'un array i retorna un resultat i no pas un nou array. Pot començar des d'una posició concreta. Va d'esquerra a la dreta.
+    var arrDeNums = [2, 25, 58, 15];
+    function Suma(total, num) {
+        return total + num;
+    }
+    let suma = arrDeNums.reduce(Suma);
+    document.getElementById("reduce").innerHTML = `Amb el mètode reduce() podem realitzar una operació amb els elements d'un array i obtenir un resultat com una suma total o resta dels tots els valors. Ara tenim l'array [${arrDeNums}] i amb reduce(function) obtindré la suma de tots els elements de l'array: ${suma}.`;
+
+
+    //El mètode reduceRight() fa el mateix que reduce() però començant des de la dreta. En el cas de fer sumes el resultat de fer reduce() i reduceRight() pot ser el mateix però no succeeix el mateix amb les restes.
+    function Resta(total, num) {
+        return total - num;
+    }
+    let resta = arrDeNums.reduceRight(Resta);
+    document.getElementById("reduceRight").innerHTML = `El mètode reduceRight() fa el mateix que reduce() però començant des de la dreta o la darrera posició de l'array. Ara faré servir el mateix array, però aniré restant els elements de l'array obtenint: ${resta}.`;
 }
