@@ -36,7 +36,7 @@ function Colors(){
     }
 }
 
-//aquesta funció mostra la utilitat de l'ús de mètodes amb les arrays
+//aquesta funció mostra la utilitat de l'ús de mètodes amb els arrays
 function functions(){
     var myArr = ["lada", "zil", "peugeot", "bmw", "opel", "citroen", "vw"];
 
@@ -210,4 +210,52 @@ function functions(){
     }
     let resta = arrDeNums.reduceRight(Resta);
     document.getElementById("reduceRight").innerHTML = `El mètode reduceRight() fa el mateix que reduce() però començant des de la dreta o la darrera posició de l'array. Ara faré servir el mateix array, però aniré restant els elements de l'array obtenint: ${resta}.`;
+
+
+    //El mètode reverse() reescriu l'array original donant-li la volta dels elements, el primer element ara és l'últim.
+    var arr_numbers = ["un", "dos", "tres"];
+    document.getElementById("reverse").innerHTML = `El mètode reverse() dona la volta als elements d'un array. Abans, l'array de números era aquest [un, dos, tres], però ara ja és: [${arr_numbers.reverse()}].`;
+
+
+    //El mètode shift() elimina el primer element d'un array. Pot retornar tant l'element eliminat com l'array afectat.
+    document.getElementById("shift").innerHTML = `De l'array de fruites [${fruites}] extreuré el primer element: [${fruites.shift()}] i mostraré la resta de l'array: [${fruites}].`;
+
+
+    //El mètode slice() retorna un nou array amb un fragment de l'array original. No modifica l'array inicial. Podem indicar l'inici i el final del nou fragment.
+    var new_cars = myArr.slice(3, 5);
+    document.getElementById("slice").innerHTML = `Si l'array inicial és aquest [${myArr}] amb el mètode slice() faré un nou array amb els elements de la posició 3 i 5: [${new_cars}].`;
+
+
+    //El mètode some() comprova si algun dels elements d'un array passa una funció. El mètode no modifica l'array.
+    var arrayNums = [2, 15, -2, 22];
+    function CercaNegatiu(num) {
+        return num < 0;
+    }
+    document.getElementById("some").innerHTML = `El mètode some() examina si un dels valors d'un array compleix un test o condició. Retorna True o False. En el present exemple la funció CercaNegatiu() examinarà l'array per valors negatius. L'array és aquest: [${arrayNums}] i segons la funció l'array ${(arrayNums.some(CercaNegatiu) == true ? " conté almenys un" : " no conté")} nombre negatiu.`;
+
+
+    //El mètode sort() ordena els elements d'un array alfabèticament i reescriu l'array original.
+    var arr_lletres = ["w", "b", "d", "z", "a"];
+    document.getElementById("sort").innerHTML = `El mètode sort() ordena els elements d'un array alfabèticament i reescriu l'array original. Ara tenim aquest array de lletres [w,b,d,z,a] i després del mètode sort() l'array és aquest: [${arr_lletres.sort()}].`;
+
+
+    //El mètode splice() pot afegir o treure/eliminar elements d'un array i reescriu l'array original
+    fruites.splice(1, 0, "Peach", "Lemon");
+    document.getElementById("splice").innerHTML = `Ara tenim aquest array de fruites: [cherry,apple,cherry]. Volem afegir dos fruites més però al mig de l'array. Ara l'array és així: [${fruites}].`;
+
+
+    //El mètode toString() retorna el contingut com a un String. El mètode no modifica l'element original.
+    let result = fruites.toString();
+    document.getElementById("toString").innerHTML = `Ara l'array de fruites convertit en String amb el mètode toString(): [${result.length}] perquè ja té 31 elements en compte de 5 si continues sent un array.`;
+
+
+    //El mètode unshift() afegeix un o més d'un elements al començament de l'array i reescriu l'array original.
+    fruites.unshift("Banana");
+    document.getElementById("unshift").innerHTML = `Amb el mètode unshift() afegiré un element al començament del array fruites que ja tenim. Després d'afegir 'Banana' ara l'array és aquest: [${fruites}].`;
+
+
+    //El mètode valueOf() retorna el valor primitiu d'un String
+    let text3 = "Holi!";
+    let resultat2 = text3.valueOf();
+    document.getElementById("value").innerHTML = `El mètode valueOf() retorna el valor primitiu d'un String: ${resultat2}`;
 }
